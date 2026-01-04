@@ -1,0 +1,49 @@
+@UserManagementAPI_HostAddress = http://localhost:5045
+@AuthToken = changeme-token
+
+POST {{UserManagementAPI_HostAddress}}/auth/token
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "secret": "admin-secret"
+}
+
+###
+
+GET {{UserManagementAPI_HostAddress}}/users
+Authorization: Bearer {{AuthToken}}
+Accept: application/json
+
+###
+
+GET {{UserManagementAPI_HostAddress}}/users/1
+Authorization: Bearer {{AuthToken}}
+Accept: application/json
+
+###
+
+POST {{UserManagementAPI_HostAddress}}/users
+Authorization: Bearer {{AuthToken}}
+Content-Type: application/json
+
+{
+  "name": "Ada Lovelace",
+  "email": "ada@example.com"
+}
+
+###
+
+PUT {{UserManagementAPI_HostAddress}}/users/1
+Authorization: Bearer {{AuthToken}}
+Content-Type: application/json
+
+{
+  "name": "Ada Byron",
+  "email": "ada.byron@example.com"
+}
+
+###
+
+DELETE {{UserManagementAPI_HostAddress}}/users/1
+Authorization: Bearer {{AuthToken}}
