@@ -7,25 +7,30 @@ Minimal in-memory user management API with logging, error handling, and token-ba
 - .NET 10.0 SDK or later
 - Git
 
-## Clone the Repository
+## Quickstart
+
+1. **Clone and navigate to the project:**
 
 ```bash
 git clone https://github.com/costa0910/UserManagementAPI.git
 cd UserManagementAPI
 ```
 
-## Quickstart
-
-1. **Run the API:**
+2. **Restore dependencies:**
 
 ```bash
-cd UserManagementAPI
-DOTNET_ENVIRONMENT=Development dotnet run --project UserManagementAPI/UserManagementAPI.csproj
+dotnet restore
+```
+
+3. **Run the API:**
+
+```bash
+dotnet run
 ```
 
 The API will start on `http://localhost:5045` (HTTPS enabled).
 
-2. **Get a Token:**
+4. **Get a Token:**
 
 Make a POST request to `/auth/token`:
 
@@ -42,7 +47,7 @@ Response:
 }
 ```
 
-3. **Use the Token:**
+5. **Use the Token:**
 
 Add the token to subsequent requests as a Bearer token:
 
@@ -135,4 +140,4 @@ dotnet build
 ## Notes
 
 - Tokens and users are stored in-memory and will reset on application restart
-- All endpoints validate tokens through middleware; 
+- All endpoints validate tokens through middleware;
